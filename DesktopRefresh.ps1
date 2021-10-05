@@ -29,6 +29,6 @@ $WinShell = New-Object -com "Wscript.Shell"
 while ($true)
 {
 $WinShell.sendkeys("{SCROLLLOCK}")
-Start-Sleep -Seconds 10
+Start-Sleep -Seconds 120
 }
 
