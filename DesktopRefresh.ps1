@@ -19,3 +19,16 @@ write-host Refreshing in $one seconds
 sleep 1
 }
 }
+
+######################################################################################
+# Second script 
+
+Clear-Host
+Echo "Keep alive w/ scroll lock..."
+$WinShell = New-Object -com "Wscript.Shell"
+while ($true)
+{
+$WinShell.sendkeys("{SCROLLLOCK}")
+Start-Sleep -Seconds 10
+}
+
