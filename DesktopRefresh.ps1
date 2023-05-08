@@ -52,3 +52,28 @@ for ($i = 1; $i -le 100000; $i++) {
         Start-Sleep 1
     }
 }
+
+######################################################################################
+# Fourth Script
+# If you run below posh script, it will simulate scroll lock key press every 120 seconds. But you will have a powershell console on the screen. If you close it, script will stop.
+# If you do not want a console on your screen, save this posh script to a location in your machine.
+# create a batch script as shown below and run that batch script at your login.
+
+#Posh Script
+Clear-Host
+Echo "Keep alive w/ scroll lock..."
+$WinShell = New-Object -com "Wscript.Shell"
+while ($true)
+{
+$WinShell.sendkeys("{SCROLLLOCK}")
+Start-Sleep -Seconds 120
+}
+
+#Batch script
+# In below example, above posh script is saved to C:\scripts folder.
+# after you set the below script at logon, when you login to your machine, below script starts and runs above powershell script which will simulate scroll lock key press every 120 seconds.
+
+TITLE Keep Alive
+%SystemRoot%\system32\WindowsPowerShell\v1.0\PowerShell.exe -WindowStyle Hidden -noprofile -file "C:\Scripts\KeepAlive.ps1"
+
+
